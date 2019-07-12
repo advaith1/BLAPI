@@ -43,7 +43,7 @@ module.exports = {
       resp.on('end', () => {
         resolve(JSON.parse(data).catch(e => {
           console.error(`BLAPI: ${e}`);
-          reject(new Error(`Failed to parse JSON from BotBlock`));
+          resolve(new Error(`Failed to parse JSON from BotBlock`));
         }));
       });
       resp.on('error', e => {
