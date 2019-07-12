@@ -41,10 +41,10 @@ module.exports = {
         data += chunk;
       });
       resp.on('end', () => {
-        resolve(JSON.parse(data).catch(e => 
+        resolve(JSON.parse(data).catch(e => {
           console.error(`BLAPI: ${e}`);
           reject(new Error(`Failed to parse JSON from BotBlock`));
-        ));
+        }));
       });
       resp.on('error', e => {
         console.error(`BLAPI: ${e}`);
